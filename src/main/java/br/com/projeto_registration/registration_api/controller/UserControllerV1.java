@@ -3,6 +3,7 @@ package br.com.projeto_registration.registration_api.controller;
 import br.com.projeto_registration.registration_api.dto.CpfRequestDto;
 import br.com.projeto_registration.registration_api.dto.UserDto;
 import br.com.projeto_registration.registration_api.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
@@ -41,7 +42,7 @@ public class UserControllerV1 {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<UserDto> save(@RequestBody UserDto userDto, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<UserDto> save(@Valid @RequestBody UserDto userDto, UriComponentsBuilder uriBuilder) {
         var userDtoSaved = userService.save(userDto);
 
         URI uri = uriBuilder.path("/api/v1/pessoas/{id}").buildAndExpand(userDtoSaved.id()).toUri();
@@ -50,12 +51,12 @@ public class UserControllerV1 {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UserDto> update(@PathVariable("id") UUID id, @RequestBody UserDto userDto){
-        return ResponseEntity.ok(userService.save(userDto));
+    public ResponseEntity<UserDto> update(@PathVariable("id") UUID id, @Valid @RequestBody UserDto userDto){
+        return ResponseEntity.ok(userService.update(id, userDto));
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<UserDto> updateCpf(@PathVariable("id") UUID id, @RequestBody CpfRequestDto requestData){
+    public ResponseEntity<UserDto> updateCpf(@PathVariable("id") UUID id, @Valid @RequestBody CpfRequestDto requestData){
         return ResponseEntity.ok(userService.updateCpf(id, requestData.getCpf()));
     }
 
