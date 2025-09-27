@@ -1,0 +1,418 @@
+openapi: 3.0.3
+info:
+  title: Registration System API
+  description: API para gerenciamento de eventos, inscrições e usuários
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/api/v1
+
+paths:
+  # -------------------------
+  # EVENT
+  # -------------------------
+  /event:
+    get:
+      summary: Listar todos os eventos
+      description: Retorna uma lista paginada de eventos
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+        - in: query
+          name: size
+          schema:
+            type: integer
+        - in: query
+          name: sort
+          schema:
+            type: string
+          description: 'Campo para ordenar e direção (ex: name,asc)'
+      responses:
+        '200':
+          description: Lista de eventos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  content:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EventDto'
+                  pageable:
+                    type: object
+                  totalElements:
+                    type: integer
+                  totalPages:
+                    type: integer
+                  number:
+                    type: integer
+    post:
+      summary: Criar um novo evento
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventDto'
+      responses:
+        '201':
+          description: Evento criado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventDto'
+
+  /event/{id}:
+    get:
+      summary: Buscar evento por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Evento encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventDto'
+    put:
+      summary: Atualizar evento por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventDto'
+      responses:
+        '200':
+          description: Evento atualizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventDto'
+    delete:
+      summary: Deletar evento por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Evento deletado
+
+  # -------------------------
+  # REGISTRATION
+  # -------------------------
+  /registration:
+    get:
+      summary: Listar todas as inscrições
+      description: Retorna uma lista paginada de inscrições
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+        - in: query
+          name: size
+          schema:
+            type: integer
+        - in: query
+          name: sort
+          schema:
+            type: string
+          description: 'Campo para ordenar e direção (ex: name,asc)'
+      responses:
+        '200':
+          description: Lista de inscrições
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  content:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/RegistrationResponseDTO'
+                  pageable:
+                    type: object
+                  totalElements:
+                    type: integer
+                  totalPages:
+                    type: integer
+                  number:
+                    type: integer
+    post:
+      summary: Criar uma nova inscrição
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegistrationRequestDTO'
+      responses:
+        '201':
+          description: Inscrição criada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegistrationResponseDTO'
+
+  /registration/{id}:
+    get:
+      summary: Buscar inscrição por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Inscrição encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegistrationResponseDTO'
+    put:
+      summary: Atualizar inscrição por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegistrationRequestDTO'
+      responses:
+        '200':
+          description: Inscrição atualizada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegistrationResponseDTO'
+    delete:
+      summary: Deletar inscrição por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Inscrição deletada
+
+  # -------------------------
+  # USER
+  # -------------------------
+  /user:
+    get:
+      summary: Listar todos os usuários
+      description: Retorna uma lista paginada de usuários
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+        - in: query
+          name: size
+          schema:
+            type: integer
+        - in: query
+          name: sort
+          schema:
+            type: string
+          description: 'Campo para ordenar e direção (ex: name,asc)'
+      responses:
+        '200':
+          description: Lista de usuários
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  content:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/UserDto'
+                  pageable:
+                    type: object
+                  totalElements:
+                    type: integer
+                  totalPages:
+                    type: integer
+                  number:
+                    type: integer
+    post:
+      summary: Criar um novo usuário
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDto'
+      responses:
+        '201':
+          description: Usuário criado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDto'
+
+  /user/{id}:
+    get:
+      summary: Buscar usuário por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Usuário encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDto'
+    put:
+      summary: Atualizar usuário por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDto'
+      responses:
+        '200':
+          description: Usuário atualizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDto'
+    delete:
+      summary: Deletar usuário por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Usuário deletado
+
+components:
+  schemas:
+    # Event
+    EventDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        date:
+          type: string
+          format: date-time
+      required:
+        - id
+        - name
+        - date
+
+    # Registration
+    RegistrationRequestDTO:
+      type: object
+      properties:
+        userId:
+          type: string
+          format: uuid
+        eventId:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [PENDING, CONFIRMED, CANCELED]
+      required:
+        - userId
+        - eventId
+        - status
+
+    RegistrationResponseDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        userId:
+          type: string
+          format: uuid
+        eventId:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [PENDING, CONFIRMED, CANCELED]
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - userId
+        - eventId
+        - status
+        - createdAt
+
+    # User
+    UserDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        cpf:
+          type: string
+      required:
+        - id
+        - name
+        - email
