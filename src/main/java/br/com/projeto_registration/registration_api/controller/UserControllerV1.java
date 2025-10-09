@@ -41,14 +41,15 @@ public class UserControllerV1 {
         return ResponseEntity.ok(userService.findByEmail(email));
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<UserDto> save(@Valid @RequestBody UserDto userDto, UriComponentsBuilder uriBuilder) {
-        var userDtoSaved = userService.save(userDto);
-
-        URI uri = uriBuilder.path("/api/v1/pessoas/{id}").buildAndExpand(userDtoSaved.id()).toUri();
-
-        return ResponseEntity.created(uri).body(userDtoSaved);
-    }
+    // Não existe mais, agora deve registrar o cliente pelo auth
+//    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<UserDto> save(@Valid @RequestBody UserDto userDto, UriComponentsBuilder uriBuilder) {
+//        var userDtoSaved = userService.save(userDto);
+//
+//        URI uri = uriBuilder.path("/api/v1/pessoas/{id}").buildAndExpand(userDtoSaved.id()).toUri();
+//
+//        return ResponseEntity.created(uri).body(userDtoSaved);
+//    }
 
     @PutMapping("/{id}")
     public ResponseEntity<UserDto> update(@PathVariable("id") UUID id, @Valid @RequestBody UserDto userDto){
