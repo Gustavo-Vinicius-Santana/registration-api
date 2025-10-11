@@ -1,0 +1,40 @@
+2025-09-27 15:50:27 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-27 15:50:29 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-27 15:51:49 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-27 15:51:51 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-27 16:05:42 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-27 16:05:44 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-27 16:05:44 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 88deb2df-cc94-48b8-8287-c0a91bcb656c
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-09-27 16:12:39 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-27 16:12:40 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Warning Code: 0, SQLState: 00000
+2025-09-27 16:12:40 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - constraint "uks6iok7pildi19ks07hgb6repi" of relation "tb_users" does not exist, skipping
+2025-09-27 16:12:40 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-27 16:12:41 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 6da48164-cf44-47ac-8979-6fe60e18c411
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-09-27 16:15:23 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-27 16:15:25 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-27 16:15:25 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 15808ec2-4d88-435a-8385-a28d5975d207
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-09-27 17:55:00 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-27 17:55:02 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-27 23:00:01 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-27 23:00:03 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userAuthControllerV1' defined in file [C:\Users\gugut\Desktop\PROJETOS\registration-api\target\classes\br\com\projeto_registration\registration_api\controller\UserAuthControllerV1.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userAuthServiceIml' defined in file [C:\Users\gugut\Desktop\PROJETOS\registration-api\target\classes\br\com\projeto_registration\registration_api\service\UserAuthServiceIml.class]: Unsatisfied dependency expressed through constructor parameter 3: Error creating bean with name 'jwtServiceIml': Injection of autowired dependencies failed
+2025-09-27 23:00:55 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-27 23:00:56 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userAuthControllerV1' defined in file [C:\Users\gugut\Desktop\PROJETOS\registration-api\target\classes\br\com\projeto_registration\registration_api\controller\UserAuthControllerV1.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userAuthServiceIml' defined in file [C:\Users\gugut\Desktop\PROJETOS\registration-api\target\classes\br\com\projeto_registration\registration_api\service\UserAuthServiceIml.class]: Unsatisfied dependency expressed through constructor parameter 3: Error creating bean with name 'jwtServiceIml': Injection of autowired dependencies failed
+2025-09-27 23:02:36 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-27 23:02:38 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userAuthControllerV1' defined in file [C:\Users\gugut\Desktop\PROJETOS\registration-api\target\classes\br\com\projeto_registration\registration_api\controller\UserAuthControllerV1.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userAuthServiceIml' defined in file [C:\Users\gugut\Desktop\PROJETOS\registration-api\target\classes\br\com\projeto_registration\registration_api\service\UserAuthServiceIml.class]: Unsatisfied dependency expressed through constructor parameter 3: Error creating bean with name 'jwtServiceIml': Injection of autowired dependencies failed
+2025-09-27 23:06:04 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-27 23:06:05 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning

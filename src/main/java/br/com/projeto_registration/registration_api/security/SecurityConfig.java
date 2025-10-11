@@ -19,7 +19,7 @@ public class SecurityConfig {
         return http
                 .authorizeHttpRequests(
                         req -> {
-                            req.requestMatchers("/api/v1/usuarios/cadastrar").permitAll();
+                            req.requestMatchers("/**").permitAll();
                             req.anyRequest().authenticated();
                         }
                 )
