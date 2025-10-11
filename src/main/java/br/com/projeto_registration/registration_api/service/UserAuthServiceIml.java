@@ -4,6 +4,7 @@ import br.com.projeto_registration.registration_api.dto.*;
 import br.com.projeto_registration.registration_api.models.User;
 import br.com.projeto_registration.registration_api.models.UserAuth;
 import br.com.projeto_registration.registration_api.repository.UserAuthRepository;
+import br.com.projeto_registration.registration_api.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,6 +18,7 @@ public class UserAuthServiceIml implements UserDetailsService, UserAuthService {
 
     private final UserService userService;
     private final UserAuthRepository userAuthRepository;
+    private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
 
@@ -29,20 +31,20 @@ public class UserAuthServiceIml implements UserDetailsService, UserAuthService {
     @Override
     public UserAuthResponseDto registerUser(UserAuthRequestDto dto) {
 
-        UserDto userDto = new UserDto(
-                null,
-                dto.name(),
-                dto.email(),
-                dto.phone(),
-                dto.cpf()
-        );
+        // Cria e salva o User normalmente
+        User user = new User();
+        user.setName(dto.name());
+        user.setEmail(dto.email());
+        user.setPhone(dto.phone());
+        user.setCpf(dto.cpf());
 
-        UserDto savedUserDto = userService.save(userDto);
+        User savedUser = userRepository.save(user); // <-- Entidade gerenciada pelo Hibernate
 
+        // Cria o UserAuth associado ao mesmo User
         UserAuth userAuth = new UserAuth();
         userAuth.setEmail(dto.email());
         userAuth.setPassword(passwordEncoder.encode(dto.password()));
-        userAuth.setUser(User.fromDto(savedUserDto)); // associa o user persistido
+        userAuth.setUser(savedUser); // ✅ associa a entidade gerenciada, não um clone
 
         UserAuth savedUserAuth = userAuthRepository.save(userAuth);
 
